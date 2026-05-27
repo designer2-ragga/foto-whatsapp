@@ -321,25 +321,7 @@ function draw() {
   }
   ctx.restore();
 
-  // 4. Brand color bar anchored at bottom (70% opacity)
-  const BAR_H = LOGO_H * 1.2;
-  const GROUP_BOTTOM = 80;
-  const BAR_EXTRA = 16;
-  ctx.save();
-  ctx.globalAlpha = 1;
-  ctx.fillStyle = v.color;
-  ctx.fillRect(0, H - BAR_H - GROUP_BOTTOM - BAR_EXTRA, W, BAR_H + GROUP_BOTTOM + BAR_EXTRA);
-  ctx.restore();
-
-  // 5. White logo centered in the bar
-  if (v.img && v.img.complete && v.img.naturalWidth > 0) {
-    const LW = LOGO_H * (v.w / v.h);
-    const BX = CX - LW / 2;
-    const BY = H - GROUP_BOTTOM - BAR_H / 2 - LOGO_H / 2;
-    ctx.drawImage(v.img, BX, BY, LW, LOGO_H);
-  }
-
-  // 5. Update WhatsApp simulator
+  // 4. Update WhatsApp simulator
   updateSim();
 }
 
