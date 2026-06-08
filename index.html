@@ -317,12 +317,16 @@ function draw() {
   ctx.fillRect(0, H - BAR_H - GROUP_BOTTOM - BAR_EXTRA, W, BAR_H + GROUP_BOTTOM + BAR_EXTRA);
   ctx.restore();
 
-  // 5. White logo centered in the bar
+  // 5. White logo centered in the bar — scale to fill 90% of canvas width (safety zone)
   if (v.img && v.img.complete && v.img.naturalWidth > 0) {
-    const LW = LOGO_H * (v.w / v.h);
+    const MAX_W = W * 0.90;                          // 90% = zona de segurança
+    const MAX_H = BAR_H * 0.80;                      // max 80% da altura da barra
+    const scale = Math.min(MAX_W / v.w, MAX_H / v.h);
+    const LW = v.w * scale;
+    const LH = v.h * scale;
     const BX = CX - LW / 2;
-    const BY = H - GROUP_BOTTOM - BAR_H / 2 - LOGO_H / 2;
-    ctx.drawImage(v.img, BX, BY, LW, LOGO_H);
+    const BY = H - GROUP_BOTTOM - BAR_H / 2 - LH / 2;
+    ctx.drawImage(v.img, BX, BY, LW, LH);
   }
 
   // 5. Update WhatsApp simulator
