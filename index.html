@@ -320,7 +320,7 @@ function draw() {
   // 5. White logo centrada na barra — largura = 92% do diametro da bola branca (8% menor)
   //    Aspect ratio travado: redimensiona proporcional, sem distorcao
   if (v.img && v.img.complete && v.img.naturalWidth > 0) {
-    const LW = (PHOTO_R * 2) * 0.80;                 // 20% menor que a largura da bola
+    const LW = (PHOTO_R * 2) * 0.70;                 // 30% menor que a largura da bola
     const LH = LW * (v.h / v.w);                     // altura proporcional (sem distorcer)
     const BX = CX - LW / 2;
     const BY = H - GROUP_BOTTOM - BAR_H / 2 - LH / 2;
