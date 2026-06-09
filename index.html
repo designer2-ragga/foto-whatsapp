@@ -323,7 +323,11 @@ function draw() {
     const LW = (PHOTO_R * 2) * 0.70;                 // 30% menor que a largura da bola
     const LH = LW * (v.h / v.w);                     // altura proporcional (sem distorcer)
     const BX = CX - LW / 2;
-    const BY = H - GROUP_BOTTOM - BAR_H / 2 - LH / 2;
+    // Alinhamento pelo TOPO: distancia fixa do topo da barra inferior.
+    // Todos os logos comecam no mesmo Y; so variam para baixo conforme a altura.
+    const barTop = H - BAR_H - GROUP_BOTTOM - BAR_EXTRA;
+    const LOGO_TOP_PAD = 26;                          // distancia fixa do topo da barra
+    const BY = barTop + LOGO_TOP_PAD;
     ctx.drawImage(v.img, BX, BY, LW, LH);
   }
 
