@@ -301,8 +301,7 @@ function draw() {
     const sc = (state.zoom/100) * (PHOTO_R*2 / Math.min(img.width,img.height));
     ctx.drawImage(img, CX - img.width*sc/2 + state.posX, CY - img.height*sc/2 + state.posY, img.width*sc, img.height*sc);
   } else {
-    ctx.fillStyle = v.color; ctx.fill();
-    ctx.fillStyle = 'rgba(0,0,0,0.35)';
+    ctx.fillStyle = '#ffffff'; ctx.fill(); ctx.fillStyle = 'rgba(0,0,0,0.35)';
     ctx.font = '500 46px Inter,sans-serif';
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText('Sua foto aqui', CX, CY);
